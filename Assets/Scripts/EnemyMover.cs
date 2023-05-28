@@ -4,44 +4,53 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] List<Waypoint> path = new List<Waypoint>();
+    [SerializeField] List<Waypoint> path;
     [SerializeField] [Range (0f , 5f)] float Speed = 1f;
 
     void Start()
     {
-        //PrintWaypointName();
+        FindPath();
         StartCoroutine(FollowPath());
+    }
+
+    void FindPath()
+    {
+        path.Clear();
+
+        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
+        Debug.Log("waypoints" + waypoints.Length);
+        for (int i = 01; i < waypoints.Length; i++)
+        {
+            if (waypoints[i] != null)
+            {
+                path.Add(waypoints[i].GetComponent<Waypoint>());
+
+            }
+        }
+
     }
 
     IEnumerator FollowPath()
     {
-        foreach(Waypoint waypoint in path)
+        for(int i=0;i<path.Count;i++)
         {
+            
             Vector3 startPosition = transform.position;
-            Vector3 endPosition = waypoint.transform.position;
+            Vector3 endPosition = path[i].transform.position;
             float travelPercent = 0f;
-
-            //transform.position = waypoint.transform.position;
 
             transform.LookAt(endPosition);
 
-           // yield return new WaitForSeconds(waitTime);
-
             while (travelPercent < 1f)
             {
-                travelPercent += Time.deltaTime * Speed ;
+                travelPercent += Time.deltaTime * Speed;
                 transform.position = Vector3.Lerp(startPosition, endPosition, travelPercent);
                 yield return new WaitForEndOfFrame();
             }
 
         }
+
+      Destroy(gameObject);
     }
-    //void PrintWaypointName()
-    //{
-    //    foreach (Waypoint waypoint in path)
-    //    {
-    //        Debug.Log(waypoint.name); 
-    //    }
-    //}
-    
+
 }
