@@ -1,6 +1,6 @@
 # MyEmpire
 Unity Game
 
+![MyEmpire2](https://github.com/MaryamMozaffari99/MyEmpire/assets/108430847/06cb0b75-1f05-489a-8109-bcc3cc6e161c)
 
-![MyEmpire](https://github.com/MaryamMozaffari99/MyEmpire/assets/108430847/cc3a181a-2dad-4ec7-aaca-338c0b99a11f)
 
