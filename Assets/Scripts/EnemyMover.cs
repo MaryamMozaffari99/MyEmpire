@@ -27,7 +27,7 @@ public class EnemyMover : MonoBehaviour
         path.Clear();
 
         GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
-        Debug.Log("waypoints" + waypoints.Length);
+        Debug.Log("waypoints" + waypoints.Length); 
         for (int i = 01; i < waypoints.Length; i++)
         {
             if (waypoints[i] != null)
