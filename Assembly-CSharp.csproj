@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\EnemyMover.cs" />
     <Compile Include="Assets\Scripts\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\CoordinateLabeler.cs" />
+    <Compile Include="Assets\PathFinding\Node.cs" />
+    <Compile Include="Assets\PathFinding\GridManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetPacks\TextMesh Pro\Shaders\TMPro.cginc" />
